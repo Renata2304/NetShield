@@ -6,8 +6,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.PopupMenu
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.netshield.R
 import com.example.netshield.databinding.FragmentSettingsBinding
 import java.util.Locale
 
@@ -46,7 +49,38 @@ class SettingsFragment : Fragment() {
             requireActivity().recreate()
         }
 
+        binding.language.setOnClickListener { view ->
+            val popupMenu = PopupMenu(requireContext(), view)
+            val languages = listOf("Română", "English")
+            languages.forEach { popupMenu.menu.add(it) }
+
+            popupMenu.menu.setGroupCheckable(0, true, true)
+            for (i in 0 until popupMenu.menu.size()) {
+                if (popupMenu.menu.getItem(i).title.toString() == savedLangDisplay(savedLang)) {
+                    popupMenu.menu.getItem(i).isChecked = true
+                }
+            }
+
+            popupMenu.setOnMenuItemClickListener { item ->
+                val selectedLangCode = if (item.title == "Română") "ro" else "en"
+                sharedPreferences.edit().putString("language", selectedLangCode).apply()
+                applyLocale(selectedLangCode)
+                requireActivity().recreate()
+                true
+            }
+
+            popupMenu.show()
+        }
+
+        binding.faq.setOnClickListener {
+            findNavController().navigate(R.id.action_navigation_settings_to_navigation_faq)
+        }
+
         return root
+    }
+
+    private fun savedLangDisplay(code: String): String {
+        return if (code == "ro") "Română" else "English"
     }
 
     private fun applyLocale(code: String) {

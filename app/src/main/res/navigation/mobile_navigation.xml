@@ -11,9 +11,6 @@
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_navigation_home_to_navigation_dashboard"
-            app:destination="@id/navigation_dashboard" />
-        <action
             android:id="@+id/action_navigation_home_to_navigation_notifications"
             app:destination="@id/navigation_settings" />
         <action
@@ -21,15 +18,25 @@
             app:destination="@id/navigation_settings" />
     </fragment>
 
-    <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.netshield.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+<!--    <fragment-->
+<!--        android:id="@+id/navigation_dashboard"-->
+<!--        android:name="com.example.netshield.ui.dashboard.DashboardFragment"-->
+<!--        android:label="@string/title_dashboard"-->
+<!--        tools:layout="@layout/fragment_dashboard" />-->
 
     <fragment
         android:id="@+id/navigation_settings"
         android:name="com.example.netshield.ui.settings.SettingsFragment"
         android:label="@string/title_settings"
-        tools:layout="@layout/fragment_settings" />
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_navigation_settings_to_navigation_faq"
+            app:destination="@id/navigation_faq" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_faq"
+        android:name="com.example.netshield.ui.faq.FAQ"
+        android:label="@string/faq"
+        tools:layout="@layout/fragment_faq" />
 </navigation>

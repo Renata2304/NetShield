@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
             val appBarConfiguration = AppBarConfiguration(
                 setOf(
                     R.id.navigation_home,
-                    R.id.navigation_dashboard,
+//                    R.id.navigation_dashboard,
                     R.id.navigation_settings
                 )
             )
@@ -56,9 +56,9 @@ class MainActivity : AppCompatActivity() {
             navView.setupWithNavController(it)
 
             // Hide main navigation bar in CameraFragment
-//            it.addOnDestinationChangedListener { _, destination, _ ->
-//                navView.visibility = if (destination.id == R.id.navigation_camera) View.GONE else View.VISIBLE
-//            }
+            it.addOnDestinationChangedListener { _, destination, _ ->
+                navView.visibility = if (destination.id == R.id.navigation_faq) View.GONE else View.VISIBLE
+            }
         }
     }
     private fun setLocale(languageCode: String) {

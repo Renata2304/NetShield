@@ -1,8 +1,18 @@
 <resources>
-    <string name="app_name">NetShield</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_settings">Settings</string>
+    <string name="app_name" translatable="false">NetShield</string>
+<string name="title_home">Acasă</string>
+<!--    <string name="title_dashboard">Dashboard</string>-->
+    <string name="title_settings">Setări</string>
 
-    <string name="theme">Theme</string>
+    <string name="theme">Temă</string>
+    <string name="language">Limbă</string>
+    <string name="faq" translatable="false">FAQ</string>
+
+    <string name="q1">De ce este nevoie de această aplicție?</string>
+    <string name="a1" translatable="false">"
+        Problema: Mulți utilizatori nu știu ce dispozitive au conectate la rețea și ce riscuri de securitate există.
+        "
+        "Obiectiv: Dezvoltarea unei aplicații mobile care să scaneze rețeaua locală Wi-Fi, să identifice dispozitivele, porturile și serviciile expuse, să evalueze riscurile și să ofere recomandări clare pentru îmbunătățirea securității și protejarea intimității digitale."
+
+</string>
 </resources>
